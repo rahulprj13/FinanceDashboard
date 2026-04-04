@@ -12,6 +12,7 @@ export const useFinance = () => {
 };
 
 export const FinanceProvider = ({ children }) => {
+  
   const [transactions, setTransactions] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedTransactions = localStorage.getItem('financeTransactions');
