@@ -46,12 +46,12 @@ const CashFlowChart = ({ data }) => {
       title="Cash Flow Analytics"
       subtitle="Income, expenses, and running balance over time"
       action={
-        <button className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105">
+        <button className="rounded-2xl bg-linear-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105">
           Export
         </button>
       }
     >
-      <div className="h-[360px] w-full">
+      <div className="h-90 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
             <defs>
