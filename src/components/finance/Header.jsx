@@ -6,7 +6,7 @@ const Header = () => {
   const { role, setRole, darkMode, setDarkMode } = useFinance();
 
   return (
-    <header className="mb-8 flex flex-col gap-6 rounded-3xl bg-linear-to-r from-white via-white to-slate-50/80 p-6 shadow-lg ring-1 ring-slate-200/50 backdrop-blur-sm md:flex-row md:items-center md:justify-between dark:bg-gradient-to-r dark:from-slate-800 dark:via-slate-800 dark:to-slate-900/80 dark:ring-slate-700/50">
+    <header className="mb-8 flex flex-col gap-6 rounded-3xl bg-linear-to-r from-white via-white to-slate-50/80 p-6 shadow-lg ring-1 ring-slate-200/50 backdrop-blur-sm md:flex-row md:items-center md:justify-between dark:bg-linear-to-r dark:from-slate-800 dark:via-slate-800 dark:to-slate-900/80 dark:ring-slate-700/50">
       <div>
         <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Welcome back</p>
         <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
