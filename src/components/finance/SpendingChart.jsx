@@ -31,7 +31,7 @@ const SpendingChart = ({ data }) => {
       title="Spending Breakdown"
       subtitle="Where your money is going this month"
     >
-      <div className="h-[360px] w-full">
+      <div className="h-90 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
