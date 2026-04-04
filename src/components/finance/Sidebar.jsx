@@ -23,9 +23,9 @@ const menu = [
 
 const Sidebar = ({ activeMenu, setActiveMenu }) => {
  return (
-  <aside className="sticky top-0 h-screen overflow-hidden border-r border-slate-200/50 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-6 py-8 text-white shadow-2xl">
+  <aside className="sticky top-0 h-screen overflow-hidden border-r border-slate-200/50 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950 px-6 py-8 text-white shadow-2xl">
     <div className="flex items-center gap-3">
-      <div className="rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-3 shadow-lg">
+      <div className="rounded-2xl bg-linear-to-br from-blue-500 to-purple-600 p-3 shadow-lg">
         <CircleDollarSign className="h-6 w-6" />
       </div>
       <div>
