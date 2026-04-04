@@ -17,6 +17,7 @@ const Watchlist = ({ data }) => {
                 <p className="font-bold text-slate-900 text-lg">{item.symbol}</p>
                 <p className="text-sm text-slate-500 font-medium">{item.name}</p>
               </div>
+              
               <div className="text-right">
                 <p className="font-bold text-slate-900 text-lg">{item.price}</p>
                 <div className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
