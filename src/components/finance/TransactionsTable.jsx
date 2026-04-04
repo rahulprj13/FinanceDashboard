@@ -143,7 +143,7 @@ const TransactionsTable = () => {
       }
     >
       <div className="mb-6 flex flex-wrap gap-4">
-        <div className="min-w-[200px] flex-1">
+        <div className="min-w-50 flex-1">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
             <input
@@ -415,7 +415,7 @@ const TransactionsTable = () => {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`h-10 min-w-[40px] rounded-xl px-3 text-sm font-medium transition ${
+                className={`h-10 min-w-10 rounded-xl px-3 text-sm font-medium transition ${
                   currentPage === page
                     ? "bg-blue-600 text-white"
                     : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
