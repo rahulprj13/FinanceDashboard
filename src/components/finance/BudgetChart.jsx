@@ -75,8 +75,8 @@ const BudgetChart = ({ data }) => {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-4">
-          <div className="h-[340px] w-full">
+        <div className="rounded-3xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-4">
+          <div className="h-85 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={data}
