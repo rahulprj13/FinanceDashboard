@@ -18,16 +18,16 @@ const GoalsCard = ({ goals }) => {
             <div className="relative">
               <div className="h-4 rounded-full bg-slate-100 overflow-hidden">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-1000 ease-out"
+                  className="h-full rounded-full bg-linear-to-r from-blue-500 to-purple-600 transition-all duration-1000 ease-out"
                   style={{ width: `${goal.value}%` }}
                 />
               </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-600/20 animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-linear-to-r from-blue-500/20 to-purple-600/20 animate-pulse" />
             </div>
           </div>
         ))}
 
-        <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-5 text-white shadow-lg">
+        <div className="rounded-2xl bg-linear-to-br from-slate-900 to-slate-800 p-5 text-white shadow-lg">
           <p className="text-sm text-slate-300 font-medium mb-2">💡 Savings Tip</p>
           <p className="text-sm leading-relaxed text-slate-100">
             You are overspending on wants this month. Moving just 8% more into
