@@ -16,10 +16,10 @@ const CustomTooltip = ({ active, payload }) => {
 
   const data = payload[0];
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm">
-      <p className="mb-2 text-sm font-bold text-slate-800">{data.name}</p>
-      <p className="text-sm text-slate-600">
-        Amount: <span className="font-semibold text-slate-900">{data.value}%</span>
+    <div className="rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm dark:border-slate-700 dark:bg-slate-800/95">
+      <p className="mb-2 text-sm font-bold text-slate-800 dark:text-slate-200">{data.name}</p>
+      <p className="text-sm text-slate-600 dark:text-slate-400">
+        Amount: <span className="font-semibold text-slate-900 dark:text-slate-100">{data.value}%</span>
       </p>
     </div>
   );

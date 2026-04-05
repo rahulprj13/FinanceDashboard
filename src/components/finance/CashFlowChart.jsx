@@ -15,23 +15,23 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload || !payload.length) return null;
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm">
-      <p className="mb-3 text-sm font-bold text-slate-800">{label}</p>
+    <div className="rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm dark:border-slate-700 dark:bg-slate-800/95">
+      <p className="mb-3 text-sm font-bold text-slate-800 dark:text-slate-200">{label}</p>
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-blue-500"></div>
-          <span className="text-sm text-slate-600">Income:</span>
-          <span className="font-semibold text-slate-900">${payload[0]?.value?.toLocaleString()}</span>
+          <span className="text-sm text-slate-600 dark:text-slate-400">Income:</span>
+          <span className="font-semibold text-slate-900 dark:text-slate-100">${payload[0]?.value?.toLocaleString()}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-red-500"></div>
-          <span className="text-sm text-slate-600">Expense:</span>
-          <span className="font-semibold text-slate-900">${payload[1]?.value?.toLocaleString()}</span>
+          <span className="text-sm text-slate-600 dark:text-slate-400">Expense:</span>
+          <span className="font-semibold text-slate-900 dark:text-slate-100">${payload[1]?.value?.toLocaleString()}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-slate-500"></div>
-          <span className="text-sm text-slate-600">Balance:</span>
-          <span className="font-semibold text-slate-900">
+          <span className="text-sm text-slate-600 dark:text-slate-400">Balance:</span>
+          <span className="font-semibold text-slate-900 dark:text-slate-100">
             ${(payload[0]?.payload?.balance || 0).toLocaleString()}
           </span>
         </div>

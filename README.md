@@ -17,6 +17,7 @@ A modern, responsive finance dashboard built with React and Vite. This applicati
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Real-time Filtering**: Search, category, type, status, and sorting filters for transactions
 - **State Management**: Custom React Context for efficient state handling
+- **Export Functionality**: CSV export for transaction data
 
 ## 🛠️ Technology Stack
 
@@ -26,7 +27,7 @@ A modern, responsive finance dashboard built with React and Vite. This applicati
 - **Icons**: Lucide React
 - **State Management**: React Context API
 - **Data Persistence**: Local Storage
-- **Charts**: Recharts (assumed from existing components)
+- **Charts**: Recharts
 
 ## 📦 Installation & Setup
 
@@ -48,6 +49,121 @@ A modern, responsive finance dashboard built with React and Vite. This applicati
 
 4. **Build for production**
    ```bash
+   npm run build
+   ```
+
+5. **Preview production build**
+   ```bash
+   npm run preview
+   ```
+
+## 🎯 Usage
+
+### Role-Based Access
+- **Viewer Role**: Can view all data, charts, and insights but cannot modify transactions
+- **Admin Role**: Full access including adding, editing, and deleting transactions
+
+### Navigation
+- Use the sidebar to navigate between different sections
+- Switch roles using the dropdown in the header
+- Toggle dark mode with the sun/moon icon
+
+### Transaction Management
+- **Add Transaction**: Click "Add" button (Admin only) to create new transactions
+- **Edit Transaction**: Click edit icon on any transaction row (Admin only)
+- **Delete Transaction**: Click delete icon to remove transactions (Admin only)
+- **Filter & Search**: Use the filter controls above the transaction table
+- **Export**: Click "Export CSV" to download transaction data
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   └── finance/
+│       ├── BudgetChart.jsx
+│       ├── CashFlowChart.jsx
+│       ├── GoalsCard.jsx
+│       ├── Header.jsx
+│       ├── SectionCard.jsx
+│       ├── Sidebar.jsx
+│       ├── SpendingChart.jsx
+│       ├── StatCard.jsx
+│       ├── TransactionsTable.jsx
+│       └── Watchlist.jsx
+├── context/
+│   └── FinanceContext.jsx
+├── data/
+│   └── FinanceData.js
+├── pages/
+│   └── FinanceDashboardUi.jsx
+├── App.jsx
+├── index.css
+└── main.jsx
+```
+
+## 🔧 Development
+
+### Available Scripts
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+### Code Quality
+- ESLint configuration for code linting
+- Tailwind CSS for consistent styling
+- Responsive design principles
+
+## 📊 Features Overview
+
+### Dashboard Components
+1. **Summary Cards**: Real-time financial metrics
+2. **Cash Flow Chart**: Monthly income/expense trends
+3. **Spending Chart**: Category-wise expense distribution
+4. **Budget Chart**: Budget vs actual spending
+5. **Transactions Table**: Detailed transaction list with CRUD operations
+6. **Insights Panel**: Automated financial analysis
+7. **Watchlist**: Investment tracking
+8. **Goals**: Savings goal progress
+
+### State Management
+- Centralized state using React Context
+- Persistent storage with localStorage
+- Efficient filtering and sorting algorithms
+
+## 🎨 Design System
+
+- **Colors**: Blue/purple gradient theme with dark mode support
+- **Typography**: Clean, readable fonts with proper hierarchy
+- **Components**: Reusable, accessible UI components
+- **Animations**: Smooth transitions and hover effects
+
+## 📱 Responsive Design
+
+- Mobile-first approach
+- Breakpoint-based layouts
+- Touch-friendly interactions
+- Optimized for all screen sizes
+
+## 🔒 Security & Best Practices
+
+- Input validation for forms
+- Safe state updates
+- Error handling for edge cases
+- Clean code architecture
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
+
+## 📄 License
+
+This project is for educational purposes as part of a frontend developer assessment.
    npm run build
    ```
 

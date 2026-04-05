@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+/* Global light mode */
+:root {
+  color-scheme: light;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* Global dark mode */
+html.dark {
+  color-scheme: dark;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+}

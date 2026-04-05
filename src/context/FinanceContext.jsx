@@ -42,6 +42,17 @@ export const FinanceProvider = ({ children }) => {
     sortOrder: 'desc'
   });
 
+  // Initialize dark mode on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (darkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, []);
+
   // Save to localStorage when state changes
   useEffect(() => {
     localStorage.setItem('financeTransactions', JSON.stringify(transactions));
@@ -53,10 +64,12 @@ export const FinanceProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('financeDarkMode', JSON.stringify(darkMode));
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    if (typeof window !== 'undefined') {
+      if (darkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
   }, [darkMode]);
 

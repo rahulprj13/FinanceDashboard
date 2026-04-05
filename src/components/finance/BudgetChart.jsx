@@ -17,14 +17,14 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload || !payload.length) return null;
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 shadow-xl backdrop-blur">
-      <p className="mb-2 text-sm font-semibold text-slate-800">{label}</p>
+    <div className="rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 shadow-xl backdrop-blur dark:border-slate-700 dark:bg-slate-800/95">
+      <p className="mb-2 text-sm font-semibold text-slate-800 dark:text-slate-200">{label}</p>
       <div className="space-y-1">
-        <p className="text-sm text-slate-600">
-          Planned: <span className="font-semibold text-slate-900">${payload[0]?.value}</span>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          Planned: <span className="font-semibold text-slate-900 dark:text-slate-100">${payload[0]?.value}</span>
         </p>
-        <p className="text-sm text-slate-600">
-          Actual: <span className="font-semibold text-emerald-600">${payload[1]?.value}</span>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          Actual: <span className="font-semibold text-emerald-600 dark:text-emerald-400">${payload[1]?.value}</span>
         </p>
       </div>
     </div>
@@ -43,39 +43,39 @@ const BudgetChart = ({ data }) => {
     >
       <div className="space-y-5">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
             <div className="mb-2 flex items-center gap-2">
-              <div className="rounded-xl bg-slate-900 p-2 text-white">
+              <div className="rounded-xl bg-slate-900 p-2 text-white dark:bg-slate-700">
                 <Target className="h-4 w-4" />
               </div>
-              <p className="text-sm font-medium text-slate-500">Total Planned</p>
+              <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Total Planned</p>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900">${totalPlanned}</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">${totalPlanned}</h3>
           </div>
 
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-700 dark:bg-emerald-900/20">
             <div className="mb-2 flex items-center gap-2">
-              <div className="rounded-xl bg-emerald-600 p-2 text-white">
+              <div className="rounded-xl bg-emerald-600 p-2 text-white dark:bg-emerald-500">
                 <TrendingUp className="h-4 w-4" />
               </div>
-              <p className="text-sm font-medium text-emerald-700">Total Actual</p>
+              <p className="text-sm font-medium text-emerald-700 dark:text-emerald-300">Total Actual</p>
             </div>
-            <h3 className="text-2xl font-bold text-emerald-700">${totalActual}</h3>
+            <h3 className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">${totalActual}</h3>
           </div>
 
-          <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4">
-            <p className="mb-2 text-sm font-medium text-blue-700">Budget Usage</p>
-            <h3 className="text-2xl font-bold text-blue-800">{progress}%</h3>
-            <div className="mt-3 h-2.5 w-full rounded-full bg-blue-100">
+          <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-700 dark:bg-blue-900/20">
+            <p className="mb-2 text-sm font-medium text-blue-700 dark:text-blue-300">Budget Usage</p>
+            <h3 className="text-2xl font-bold text-blue-800 dark:text-blue-300">{progress}%</h3>
+            <div className="mt-3 h-2.5 w-full rounded-full bg-blue-100 dark:bg-blue-900/50">
               <div
-                className="h-2.5 rounded-full bg-blue-600 transition-all duration-500"
+                className="h-2.5 rounded-full bg-blue-600 dark:bg-blue-400 transition-all duration-500"
                 style={{ width: `${Math.min(progress, 100)}%` }}
               />
             </div>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-4">
+        <div className="rounded-3xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-4 dark:border-slate-700 dark:bg-linear-to-br dark:from-slate-800 dark:to-slate-900/50">
           <div className="h-85 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart

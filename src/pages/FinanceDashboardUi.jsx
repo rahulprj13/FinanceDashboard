@@ -35,6 +35,7 @@ const FinanceDashboardUI = () => {
         <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
 
         <main className="px-6 py-6 sm:px-8 sm:py-8 lg:px-10">
+
           <Header />
 
           <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
