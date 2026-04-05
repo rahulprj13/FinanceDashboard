@@ -9,6 +9,7 @@ import {
   Search,
   ChevronLeft,
   ChevronRight,
+  Download,
 } from "lucide-react";
 import { useFinance } from "../../context/FinanceContext";
 
@@ -39,9 +40,18 @@ const TransactionsTable = () => {
 
   const handleAdd = () => {
     if (formData.title && formData.category && formData.amount && formData.date) {
+      // Convert date from "YYYY-MM-DD" to "DD MMM YYYY"
+      const dateObj = new Date(formData.date);
+      const day = String(dateObj.getDate()).padStart(2, '0');
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const month = monthNames[dateObj.getMonth()];
+      const year = dateObj.getFullYear();
+      const formattedDate = `${day} ${month} ${year}`;
+      
       addTransaction({
         ...formData,
         amount: parseFloat(formData.amount),
+        date: formattedDate,
       });
       setFormData({
         title: "",
@@ -57,11 +67,17 @@ const TransactionsTable = () => {
 
   const handleEdit = (transaction) => {
     setEditingTransaction(transaction);
+    // Convert date from "DD MMM YYYY" to "YYYY-MM-DD"
+    const dateParts = transaction.date.split(' ');
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthIndex = monthNames.indexOf(dateParts[1]);
+    const formattedDate = `${dateParts[2]}-${String(monthIndex + 1).padStart(2, '0')}-${String(dateParts[0]).padStart(2, '0')}`;
+    
     setFormData({
       title: transaction.title,
       category: transaction.category,
       amount: transaction.amount.toString(),
-      date: transaction.date,
+      date: formattedDate,
       status: transaction.status,
       type: transaction.type,
     });
@@ -75,11 +91,20 @@ const TransactionsTable = () => {
       formData.amount &&
       formData.date
     ) {
+      // Convert date from "YYYY-MM-DD" to "DD MMM YYYY"
+      const dateObj = new Date(formData.date);
+      const day = String(dateObj.getDate()).padStart(2, '0');
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const month = monthNames[dateObj.getMonth()];
+      const year = dateObj.getFullYear();
+      const formattedDate = `${day} ${month} ${year}`;
+      
       updateTransaction(
         editingTransaction.id || `${editingTransaction.title}-${editingTransaction.date}`,
         {
           ...formData,
           amount: parseFloat(formData.amount),
+          date: formattedDate,
         }
       );
       setEditingTransaction(null);
@@ -98,6 +123,31 @@ const TransactionsTable = () => {
     if (window.confirm("Are you sure you want to delete this transaction?")) {
       deleteTransaction(id);
     }
+  };
+
+  const exportToCSV = () => {
+    const headers = ["Title", "Category", "Amount", "Date", "Status", "Type"];
+    const csvContent = [
+      headers.join(","),
+      ...transactions.map(t => [
+        `"${t.title}"`,
+        `"${t.category}"`,
+        t.amount,
+        `"${t.date}"`,
+        `"${t.status}"`,
+        `"${t.type}"`
+      ].join(","))
+    ].join("\n");
+    
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "transactions.csv");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const categories = ["all", ...new Set(transactions.map((t) => t.category))];
@@ -136,6 +186,13 @@ const TransactionsTable = () => {
               Add
             </button>
           )}
+          <button
+            onClick={exportToCSV}
+            className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md"
+          >
+            <Download className="h-4 w-4" />
+            Export CSV
+          </button>
           <button className="rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md">
             View All
           </button>
