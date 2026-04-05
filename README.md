@@ -217,7 +217,6 @@ src/
 ├── main.jsx             # Application entry point
 └── index.css            # Global styles
 ```
-
 ## 🎨 Design Decisions
 
 ### UI/UX Approach
