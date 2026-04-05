@@ -30,7 +30,7 @@ const FinanceDashboardUI = () => {
   const netBalance = totalIncome - totalExpense;
 
   return (
-    <div className={`min-h-screen bg-linear-to-br from-slate-50 via-blue-50/30 to-purple-50/20 text-slate-900 dark:from-slate-900 dark:via-slate-800/30 dark:to-slate-900/20 dark:text-slate-100`}>
+    <div className={`min-h-screen bg-linear-to-br from-slate-900 via-slate-800/30 to-slate-950/20 text-slate-100 dark:from-slate-50 dark:via-blue-50/30 dark:to-purple-50/20 dark:text-slate-900`}>
       <div className="grid min-h-screen grid-cols-1 xl:grid-cols-[280px_1fr]">
         <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
 
@@ -86,35 +86,35 @@ const FinanceDashboardUI = () => {
               subtitle="Key observations from your financial data"
             >
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100/50 p-6 dark:from-blue-900/50 dark:to-blue-800/50">
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">Highest Spending Category</h4>
-                  <p className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">
+                <div className="rounded-2xl bg-gradient-to-br from-blue-900/50 to-blue-800/50 p-6 dark:from-blue-50 dark:to-blue-100/50">
+                  <h4 className="text-lg font-bold text-slate-100 dark:text-slate-900 mb-2">Highest Spending Category</h4>
+                  <p className="text-3xl font-bold text-blue-400 dark:text-blue-600 mb-1">
                     {insights.highestSpendingCategory.category || 'N/A'}
                   </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                  <p className="text-sm text-slate-300 dark:text-slate-600">
                     ${insights.highestSpendingCategory.amount?.toLocaleString() || 0} spent
                   </p>
                 </div>
 
-                <div className="rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 p-6 dark:from-emerald-900/50 dark:to-emerald-800/50">
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">Monthly Comparison</h4>
+                <div className="rounded-2xl bg-gradient-to-br from-emerald-900/50 to-emerald-800/50 p-6 dark:from-emerald-50 dark:to-emerald-100/50">
+                  <h4 className="text-lg font-bold text-slate-100 dark:text-slate-900 mb-2">Monthly Comparison</h4>
                   <p className={`text-3xl font-bold mb-1 ${
-                    insights.monthlyComparison.change >= 0 ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'
+                    insights.monthlyComparison.change >= 0 ? 'text-rose-400 dark:text-rose-600' : 'text-emerald-400 dark:text-emerald-600'
                   }`}>
                     {insights.monthlyComparison.change >= 0 ? '+' : ''}
                     {insights.monthlyComparison.change.toFixed(1)}%
                   </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                  <p className="text-sm text-slate-300 dark:text-slate-600">
                     vs last month (${insights.monthlyComparison.last?.toLocaleString() || 0})
                   </p>
                 </div>
 
-                <div className="rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100/50 p-6 dark:from-purple-900/50 dark:to-purple-800/50">
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">Income vs Expenses</h4>
-                  <p className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-1">
+                <div className="rounded-2xl bg-gradient-to-br from-purple-900/50 to-purple-800/50 p-6 dark:from-purple-50 dark:to-purple-100/50">
+                  <h4 className="text-lg font-bold text-slate-100 dark:text-slate-900 mb-2">Income vs Expenses</h4>
+                  <p className="text-3xl font-bold text-purple-400 dark:text-purple-600 mb-1">
                     ${(insights.totalIncome - insights.totalExpenses).toLocaleString()}
                   </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                  <p className="text-sm text-slate-300 dark:text-slate-600">
                     Net savings this period
                   </p>
                 </div>

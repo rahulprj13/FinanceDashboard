@@ -1,6 +1,7 @@
 import React from "react";
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import SectionCard from "./SectionCard";
+import { useFinance } from "../../context/FinanceContext";
 
 const COLORS = [
   "#3b82f6", // blue
@@ -16,16 +17,19 @@ const CustomTooltip = ({ active, payload }) => {
 
   const data = payload[0];
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm dark:border-slate-700 dark:bg-slate-800/95">
-      <p className="mb-2 text-sm font-bold text-slate-800 dark:text-slate-200">{data.name}</p>
-      <p className="text-sm text-slate-600 dark:text-slate-400">
-        Amount: <span className="font-semibold text-slate-900 dark:text-slate-100">{data.value}%</span>
+    <div className="rounded-2xl border border-slate-700 bg-slate-800/95 px-4 py-3 shadow-xl backdrop-blur-sm dark:border-slate-200 dark:bg-white/95">
+      <p className="mb-2 text-sm font-bold text-slate-200 dark:text-slate-800">{data.name}</p>
+      <p className="text-sm text-slate-400 dark:text-slate-600">
+        Amount: <span className="font-semibold text-slate-100 dark:text-slate-900">{data.value}%</span>
       </p>
     </div>
   );
 };
 
 const SpendingChart = ({ data }) => {
+  const { darkMode } = useFinance();
+  const legendColor = darkMode ? "#334155" : "#cbd5e1";
+
   return (
     <SectionCard
       title="Spending Breakdown"
@@ -59,6 +63,7 @@ const SpendingChart = ({ data }) => {
                 paddingTop: "20px",
                 fontSize: "13px",
                 fontWeight: 500,
+                color: legendColor,
               }}
               iconType="circle"
             />

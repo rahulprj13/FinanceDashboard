@@ -1,17 +1,21 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
-/* Global light mode */
+/*
+ * Class-based dark mode (see tailwind.config.js darkMode: 'class').
+ * This app uses base utilities for the dark dashboard look and `dark:` for the light look,
+ * so `html.dark` matches Tailwind and should use light document colors.
+ */
 :root {
+  color-scheme: dark;
+  background: #020617;
+  color: #f1f5f9;
+}
+
+html.dark {
   color-scheme: light;
   background: #f8fafc;
   color: #0f172a;
-}
-
-/* Global dark mode */
-html.dark {
-  color-scheme: dark;
-  background: #0f172a;
-  color: #f8fafc;
 }
 
 body {

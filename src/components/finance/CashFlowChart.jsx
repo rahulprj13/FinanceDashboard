@@ -1,4 +1,5 @@
 import React from "react";
+import { useFinance } from "../../context/FinanceContext";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -15,23 +16,23 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload || !payload.length) return null;
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 shadow-xl backdrop-blur-sm dark:border-slate-700 dark:bg-slate-800/95">
-      <p className="mb-3 text-sm font-bold text-slate-800 dark:text-slate-200">{label}</p>
+    <div className="rounded-2xl border border-slate-700 bg-slate-800/95 px-4 py-3 shadow-xl backdrop-blur-sm dark:border-slate-200 dark:bg-white/95">
+      <p className="mb-3 text-sm font-bold text-slate-200 dark:text-slate-800">{label}</p>
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-blue-500"></div>
-          <span className="text-sm text-slate-600 dark:text-slate-400">Income:</span>
-          <span className="font-semibold text-slate-900 dark:text-slate-100">${payload[0]?.value?.toLocaleString()}</span>
+          <span className="text-sm text-slate-400 dark:text-slate-600">Income:</span>
+          <span className="font-semibold text-slate-100 dark:text-slate-900">${payload[0]?.value?.toLocaleString()}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-red-500"></div>
-          <span className="text-sm text-slate-600 dark:text-slate-400">Expense:</span>
-          <span className="font-semibold text-slate-900 dark:text-slate-100">${payload[1]?.value?.toLocaleString()}</span>
+          <span className="text-sm text-slate-400 dark:text-slate-600">Expense:</span>
+          <span className="font-semibold text-slate-100 dark:text-slate-900">${payload[1]?.value?.toLocaleString()}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-slate-500"></div>
-          <span className="text-sm text-slate-600 dark:text-slate-400">Balance:</span>
-          <span className="font-semibold text-slate-900 dark:text-slate-100">
+          <span className="text-sm text-slate-400 dark:text-slate-600">Balance:</span>
+          <span className="font-semibold text-slate-100 dark:text-slate-900">
             ${(payload[0]?.payload?.balance || 0).toLocaleString()}
           </span>
         </div>
@@ -41,6 +42,11 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 const CashFlowChart = ({ data }) => {
+  const { darkMode } = useFinance();
+  const gridStroke = darkMode ? "#e2e8f0" : "#374151";
+  const tickFill = darkMode ? "#475569" : "#9ca3af";
+  const legendColor = darkMode ? "#334155" : "#cbd5e1";
+
   return (
     <SectionCard
       title="Cash Flow Analytics"
@@ -66,17 +72,17 @@ const CashFlowChart = ({ data }) => {
                 <stop offset="95%" stopColor="#ef4444" stopOpacity={0.03} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={gridStroke} />
             <XAxis
               dataKey="month"
               tickLine={false}
               axisLine={false}
-              tick={{ fill: "#64748b", fontSize: 13, fontWeight: 500 }}
+              tick={{ fill: tickFill, fontSize: 13, fontWeight: 500 }}
             />
             <YAxis
               tickLine={false}
               axisLine={false}
-              tick={{ fill: "#64748b", fontSize: 12 }}
+              tick={{ fill: tickFill, fontSize: 12 }}
               tickFormatter={(value) => `$${value}`}
             />
             <Tooltip content={<CustomTooltip />} />
@@ -85,6 +91,7 @@ const CashFlowChart = ({ data }) => {
                 paddingTop: "20px",
                 fontSize: "14px",
                 fontWeight: 500,
+                color: legendColor,
               }}
             />
             <Area

@@ -180,7 +180,7 @@ const TransactionsTable = () => {
           {role === "admin" && (
             <button
               onClick={() => setShowAddForm(true)}
-              className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+              className="flex items-center gap-2 rounded-2xl border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-slate-300 shadow-sm transition-all duration-200 hover:bg-slate-600 hover:shadow-md dark:border-slate-200 dark:bg-white dark:text-slate-700 dark:hover:bg-slate-50"
             >
               <Plus className="h-4 w-4" />
               Add
@@ -188,12 +188,12 @@ const TransactionsTable = () => {
           )}
           <button
             onClick={exportToCSV}
-            className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+            className="flex items-center gap-2 rounded-2xl border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-slate-300 shadow-sm transition-all duration-200 hover:bg-slate-600 hover:shadow-md dark:border-slate-200 dark:bg-white dark:text-slate-700 dark:hover:bg-slate-50"
           >
             <Download className="h-4 w-4" />
             Export CSV
           </button>
-          <button className="rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600">
+          <button className="rounded-2xl border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-slate-300 shadow-sm transition-all duration-200 hover:bg-slate-600 hover:shadow-md dark:border-slate-200 dark:bg-white dark:text-slate-700 dark:hover:bg-slate-50">
             View All
           </button>
         </div>
@@ -208,7 +208,7 @@ const TransactionsTable = () => {
               placeholder="Search transactions..."
               value={filters.search}
               onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
-              className="w-full rounded-xl border border-slate-200 bg-white px-10 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+              className="w-full rounded-xl border border-slate-600 bg-slate-700 px-10 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
             />
           </div>
         </div>
@@ -216,7 +216,7 @@ const TransactionsTable = () => {
         <select
           value={filters.category}
           onChange={(e) => setFilters((prev) => ({ ...prev, category: e.target.value }))}
-          className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+          className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
         >
           {categories.map((cat) => (
             <option key={cat} value={cat}>
@@ -228,7 +228,7 @@ const TransactionsTable = () => {
         <select
           value={filters.type}
           onChange={(e) => setFilters((prev) => ({ ...prev, type: e.target.value }))}
-          className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+          className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
         >
           {types.map((type) => (
             <option key={type} value={type}>
@@ -240,7 +240,7 @@ const TransactionsTable = () => {
         <select
           value={filters.status}
           onChange={(e) => setFilters((prev) => ({ ...prev, status: e.target.value }))}
-          className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+          className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
         >
           {statuses.map((status) => (
             <option key={status} value={status}>
@@ -255,7 +255,7 @@ const TransactionsTable = () => {
             const [sortBy, sortOrder] = e.target.value.split("-");
             setFilters((prev) => ({ ...prev, sortBy, sortOrder }));
           }}
-          className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+          className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
         >
           <option value="date-desc">Date (Newest)</option>
           <option value="date-asc">Date (Oldest)</option>
@@ -267,8 +267,8 @@ const TransactionsTable = () => {
       </div>
 
       {(showAddForm || editingTransaction) && (
-        <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-600 dark:bg-slate-800">
-          <h4 className="mb-4 font-semibold text-slate-900 dark:text-slate-100">
+        <div className="mb-6 rounded-2xl border border-slate-600 bg-slate-800 p-4 dark:border-slate-200 dark:bg-slate-50">
+          <h4 className="mb-4 font-semibold text-slate-100 dark:text-slate-900">
             {editingTransaction ? "Edit Transaction" : "Add New Transaction"}
           </h4>
 
@@ -278,32 +278,32 @@ const TransactionsTable = () => {
               placeholder="Title"
               value={formData.title}
               onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+              className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
             />
             <input
               type="text"
               placeholder="Category"
               value={formData.category}
               onChange={(e) => setFormData((prev) => ({ ...prev, category: e.target.value }))}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+              className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
             />
             <input
               type="number"
               placeholder="Amount"
               value={formData.amount}
               onChange={(e) => setFormData((prev) => ({ ...prev, amount: e.target.value }))}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+              className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
             />
             <input
               type="date"
               value={formData.date}
               onChange={(e) => setFormData((prev) => ({ ...prev, date: e.target.value }))}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+              className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
             />
             <select
               value={formData.type}
               onChange={(e) => setFormData((prev) => ({ ...prev, type: e.target.value }))}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+              className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
             >
               <option value="credit">Income</option>
               <option value="debit">Expense</option>
@@ -311,7 +311,7 @@ const TransactionsTable = () => {
             <select
               value={formData.status}
               onChange={(e) => setFormData((prev) => ({ ...prev, status: e.target.value }))}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:focus:border-blue-400"
+              className="rounded-xl border border-slate-600 bg-slate-700 px-3 py-2 text-sm outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 dark:border-slate-200 dark:bg-white dark:text-slate-900 dark:focus:border-blue-400"
             >
               <option value="Completed">Completed</option>
               <option value="Pending">Pending</option>
@@ -338,7 +338,7 @@ const TransactionsTable = () => {
                   type: "debit",
                 });
               }}
-              className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+              className="rounded-xl border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-600 dark:border-slate-200 dark:bg-white dark:text-slate-700 dark:hover:bg-slate-50"
             >
               Cancel
             </button>
@@ -349,7 +349,7 @@ const TransactionsTable = () => {
       <div className="overflow-x-auto">
         <table className="min-w-full border-separate border-spacing-y-3">
           <thead>
-            <tr className="text-left text-sm text-slate-500">
+            <tr className="text-left text-sm text-slate-400 dark:text-slate-600">
               <th className="pb-2 font-semibold">Transaction</th>
               <th className="pb-2 font-semibold">Category</th>
               <th className="pb-2 font-semibold">Date</th>
@@ -364,7 +364,7 @@ const TransactionsTable = () => {
               <tr>
                 <td
                   colSpan={role === "admin" ? 6 : 5}
-                  className="py-8 text-center text-slate-500 dark:text-slate-400"
+                  className="py-8 text-center text-slate-400 dark:text-slate-600"
                 >
                   No transactions found
                 </td>
@@ -377,9 +377,9 @@ const TransactionsTable = () => {
                 return (
                   <tr
                     key={id}
-                    className="group rounded-2xl bg-slate-50/50 transition-all duration-200 hover:bg-slate-100/70 hover:shadow-sm dark:bg-slate-800/50 dark:hover:bg-slate-700/70"
+                    className="group rounded-2xl bg-slate-800/50 transition-all duration-200 hover:bg-slate-700/70 hover:shadow-sm dark:bg-slate-50/50 dark:hover:bg-slate-100/70"
                   >
-                    <td className="rounded-l-2xl px-4 py-4 font-semibold text-slate-900 dark:text-slate-100">
+                    <td className="rounded-l-2xl px-4 py-4 font-semibold text-white dark:text-black">
                       <div className="flex items-center gap-3">
                         <div
                           className={`rounded-full p-2 ${
@@ -398,18 +398,18 @@ const TransactionsTable = () => {
                       </div>
                     </td>
 
-                    <td className="px-4 py-4 font-medium text-slate-600 dark:text-slate-300">
+                    <td className="px-4 py-4 font-medium text-slate-300 dark:text-slate-600">
                       {item.category}
                     </td>
-                    <td className="px-4 py-4 font-medium text-slate-600 dark:text-slate-300">
+                    <td className="px-4 py-4 font-medium text-slate-300 dark:text-slate-600">
                       {item.date}
                     </td>
                     <td className="px-4 py-4">
                       <span
                         className={`rounded-full px-3 py-1 text-xs font-semibold ${
                           item.status === "Completed"
-                            ? "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 dark:bg-emerald-900/50 dark:text-emerald-300 dark:ring-emerald-700"
-                            : "bg-amber-50 text-amber-700 ring-1 ring-amber-200 dark:bg-amber-900/50 dark:text-amber-300 dark:ring-amber-700"
+                            ? "bg-emerald-900/50 text-emerald-300 ring-1 ring-emerald-700 dark:bg-emerald-50 dark:text-emerald-700 dark:ring-emerald-200"
+                            : "bg-amber-900/50 text-amber-300 ring-1 ring-amber-700 dark:bg-amber-50 dark:text-amber-700 dark:ring-amber-200"
                         }`}
                       >
                         {item.status}
@@ -419,8 +419,8 @@ const TransactionsTable = () => {
                     <td
                       className={`px-4 py-4 text-right text-lg font-bold ${
                         positive
-                          ? "text-emerald-600 dark:text-emerald-400"
-                          : "text-rose-600 dark:text-rose-400"
+                          ? "text-emerald-400 dark:text-emerald-600"
+                          : "text-rose-400 dark:text-rose-600"
                       }`}
                     >
                       {positive ? "+" : "-"}${item.amount.toLocaleString()}
@@ -431,13 +431,13 @@ const TransactionsTable = () => {
                         <div className="flex gap-2">
                           <button
                             onClick={() => handleEdit(item)}
-                            className="rounded-lg p-2 text-slate-500 hover:bg-slate-200 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-600 dark:hover:text-slate-200"
+                            className="rounded-lg p-2 text-slate-400 hover:bg-slate-600 hover:text-slate-200 dark:text-slate-500 dark:hover:bg-slate-200 dark:hover:text-slate-700"
                           >
                             <Edit className="h-4 w-4" />
                           </button>
                           <button
                             onClick={() => handleDelete(id)}
-                            className="rounded-lg p-2 text-slate-500 hover:bg-red-100 hover:text-red-600 dark:text-slate-400 dark:hover:bg-red-900/50 dark:hover:text-red-400"
+                            className="rounded-lg p-2 text-slate-400 hover:bg-red-900/50 hover:text-red-400 dark:text-slate-500 dark:hover:bg-red-100 dark:hover:text-red-600"
                           >
                             <Trash2 className="h-4 w-4" />
                           </button>
@@ -453,8 +453,8 @@ const TransactionsTable = () => {
       </div>
 
       {transactions.length > 0 && (
-        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-4 sm:flex-row dark:border-slate-700">
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-slate-700 pt-4 sm:flex-row dark:border-slate-200">
+          <p className="text-sm text-slate-400 dark:text-slate-500">
             Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
             {Math.min(currentPage * itemsPerPage, transactions.length)} of {transactions.length} transactions
           </p>
@@ -463,7 +463,7 @@ const TransactionsTable = () => {
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="rounded-xl border border-slate-200 bg-white p-2 text-slate-600 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
+              className="rounded-xl border border-slate-600 bg-slate-700 p-2 text-slate-200 transition hover:bg-slate-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-200 dark:bg-white dark:text-slate-600 dark:hover:bg-slate-50"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -475,7 +475,7 @@ const TransactionsTable = () => {
                 className={`h-10 min-w-10 rounded-xl px-3 text-sm font-medium transition ${
                   currentPage === page
                     ? "bg-blue-600 text-white"
-                    : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
+                    : "border border-slate-600 bg-slate-700 text-slate-200 hover:bg-slate-600 dark:border-slate-200 dark:bg-white dark:text-slate-700 dark:hover:bg-slate-50"
                 }`}
               >
                 {page}
@@ -485,7 +485,7 @@ const TransactionsTable = () => {
             <button
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="rounded-xl border border-slate-200 bg-white p-2 text-slate-600 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
+              className="rounded-xl border border-slate-600 bg-slate-700 p-2 text-slate-200 transition hover:bg-slate-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-200 dark:bg-white dark:text-slate-600 dark:hover:bg-slate-50"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
