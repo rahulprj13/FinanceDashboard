@@ -25,20 +25,12 @@ const FinanceDashboardUI = () => {
   const [activeMenu, setActiveMenu] = useState("Dashboard");
   const { insights } = useFinance();
 
-  const totalIncome = useMemo(
-    () => monthlyData.reduce((a, c) => a + c.income, 0),
-    []
-  );
-
-  const totalExpense = useMemo(
-    () => monthlyData.reduce((a, c) => a + c.expense, 0),
-    []
-  );
-
+  const totalIncome = insights.totalIncome;
+  const totalExpense = insights.totalExpenses;
   const netBalance = totalIncome - totalExpense;
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 text-slate-900 dark:from-slate-900 dark:via-slate-800/30 dark:to-slate-900/20 dark:text-slate-100`}>
+    <div className={`min-h-screen bg-linear-to-br from-slate-50 via-blue-50/30 to-purple-50/20 text-slate-900 dark:from-slate-900 dark:via-slate-800/30 dark:to-slate-900/20 dark:text-slate-100`}>
       <div className="grid min-h-screen grid-cols-1 xl:grid-cols-[280px_1fr]">
         <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
 
