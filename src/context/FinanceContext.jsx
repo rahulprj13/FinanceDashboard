@@ -63,6 +63,7 @@ export const FinanceProvider = ({ children }) => {
   }, [role]);
 
   useEffect(() => {
+    
     localStorage.setItem('financeDarkMode', JSON.stringify(darkMode));
     if (typeof window !== 'undefined') {
       if (darkMode) {
